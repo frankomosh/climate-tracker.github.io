@@ -109,3 +109,37 @@ button) {
     align-items: center;
     justify-content: center;
 }
+.separator::before {
+    content: "or";
+    color: #b3b3b3;
+    font-size: 19px;
+    padding: 0 15px;
+    background: #EBDEF0ff;
+}
+
+.input-part button {
+    color: #fff;
+    cursor: pointer;
+    background: #6b8fdb;
+    transition: 0.3s ease;
+}
+
+.input-part button:hover {
+    background: #4669ac;
+}
+
+.wrapper .weather-part {
+    display: none;
+    margin: 30px 0 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper.active .weather-part {
+    display: flex;
+}
+
+.weather-part img {
+    max-width: 125px;
+}
