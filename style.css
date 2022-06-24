@@ -33,3 +33,37 @@ body {
     align-items: center;
     border-bottom: 1px solid #ccc;
 }
+header i {
+    font-size: 0em;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.wrapper.active header i {
+    margin-left: 5px;
+    font-size: 30px;
+}
+
+.wrapper .input-part {
+    margin: 20px 25px 30px;
+}
+
+.wrapper.active .input-part {
+    display: none;
+}
+
+.input-part .info-txt {
+    display: none;
+    font-size: 17px;
+    text-align: center;
+    padding: 12px 10px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+.input-part .info-txt.error {
+    color: #721c24;
+    display: block;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
