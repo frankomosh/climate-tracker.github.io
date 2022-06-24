@@ -23,3 +23,5 @@ The api is linked to the search field from where the approaching destination is 
 The application uses CSS, HTML and JavaScript to achieve it's core objectives. The HTML document is where structure of the document is outlined. The application takes in a simple structure because of the preciseness with which it is intended. The JavaScript is meant to add funtionality to most features in the application.
 
 Features such as event listeners and other DOM manipulation tricks makes it easier to link the api from open weather to my project. Finally, the CSS is majorly concerned with offering styling elements to the application. The CSS imports some fonts from google apis which are critical to how the font styling of the project should be.
+
+*N/B: Kidndly press enter on your keyboard after typing in the town you are approaching so that you can determine the prevailing climatic conditions. 
