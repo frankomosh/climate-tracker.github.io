@@ -9,17 +9,13 @@ const wrapper = document.querySelector(".wrapper"),
 
 let api;
 inputField.addEventListener("keyup", e => {
-    //if user pressed Enter btn and input value is not empty
     if (e.key == "Enter" && inputField.value != "") {
         requestApi(inputField.value);
     }
 });
 
 locationBtn.addEventListener("click", () => {
-    if (navigator.geolocation) { // if browser supports geolocation API
-        //geolocation.getCurrentPosition method is used to get the current position of the device
-        //it takes three parameters: success, error and options. If everything is right then sucess
-        //callback function will call else error callback function will call. 
+    if (navigator.geolocation) { 
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     } else {
         alert("Your browser not support geolocation api");
@@ -31,7 +27,7 @@ function requestApi(city) {
 }
 
 function onSuccess(position) {
-    const { latitude, longitude } = position.coords; //getting lat and long of the user devices from coords obj
+    const { latitude, longitude } = position.coords; 
     api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=094b3c61c39ce8237f2e4b22266e472b`;
     fetchData();
 }
@@ -44,8 +40,7 @@ function onError(error) {
 function fetchData() {
     infoTxt.innerText = "Getting weather details...";
     infoTxt.classList.add("pending");
-    //getting api response and returning it with parsing into js object and in another
-    //then function calling weatherDetails funstion with passing api result as an argument
+
     fetch(api).then(res => res.json()).then(result => weatherDetails(result)).catch(() => {
         infoTxt.innerText = "Something went wrong";
         infoTxt.classList.replace("pending", "error");
@@ -56,13 +51,12 @@ function weatherDetails(info) {
     if (info.cod == "404") {
         infoTxt.classList.replace("pending", "error");
         infoTxt.innerText = `${inputField.value} isn't a valid city name`;
-    } else { ///getting required properties value from info object
+    } else { 
         const city = info.name;
         const country = info.sys.country;
         const { description, id } = info.weather[0];
         const { temp, feels_like, humidity } = info.main;
 
-        //displaying dymanic images accprding to the id returned in the weather object by the api
         if (id == 800) {
             wIcon.src = "icons/clear.svg";
         } else if (id >= 200 && id <= 232) {
@@ -77,7 +71,6 @@ function weatherDetails(info) {
             wIcon.src = "icons/rain.svg";
         }
 
-        //passing these values to a particular html element
         weatherPart.querySelector(".temp .numb").innerText = Math.floor(temp);
         weatherPart.querySelector(".weather").innerText = description;
         weatherPart.querySelector(".location span").innerText = `${city}, ${country}`;
