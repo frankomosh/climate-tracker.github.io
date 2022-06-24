@@ -7,7 +7,7 @@ Climate tracker application for travelers and drivers.
 Frankline Omondi
 
 #Access
-Live project linked on github pages
+full project in my github page
 
 #Detailed Description
 The project is a simple weather application which guides travelers and drivers as they navigate different areas having diverse climatic conditions.
